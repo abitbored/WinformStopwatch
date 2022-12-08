@@ -37,6 +37,7 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbStartUrl
@@ -72,7 +73,7 @@
             // lblStopwatch
             // 
             this.lblStopwatch.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblStopwatch.Location = new System.Drawing.Point(298, 173);
+            this.lblStopwatch.Location = new System.Drawing.Point(298, 254);
             this.lblStopwatch.Name = "lblStopwatch";
             this.lblStopwatch.Size = new System.Drawing.Size(188, 52);
             this.lblStopwatch.TabIndex = 1;
@@ -117,10 +118,21 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(332, 150);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(120, 50);
+            this.btnSubmit.TabIndex = 3;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
             // FormStopwatch
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnRemove);
@@ -153,5 +165,6 @@
         private Button btnRemove;
         private Button btnStop;
         private Button btnStart;
+        private Button btnSubmit;
     }
 }

@@ -32,6 +32,16 @@ namespace WinformStopwatch
             _timer.Elapsed += OnTimerElapse;
         }
 
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            ClassUrl.startUrl = tbStartUrl.Text;
+            ClassUrl.stopUrl = tbStopUrl.Text;
+
+            ShowSubmitMessageBox();
+            tbStartUrl.ReadOnly = true;
+            tbStopUrl.ReadOnly = true;
+        }
+
         private void btnInstall_Click(object sender, EventArgs e)
         {
             Installcert();
@@ -45,9 +55,6 @@ namespace WinformStopwatch
         private void btnStart_Click(object sender, EventArgs e)
         {
             Starts();
-            
-            ClassUrl.startUrl = tbStartUrl.Text;
-            ClassUrl.stopUrl = tbStopUrl.Text;
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -211,12 +218,20 @@ namespace WinformStopwatch
                     }
                     else
                     {
-                        await Task.Delay(1);
+                        await Task.Delay(10000);
                         Comparestop(Firstline);
                     }
                 }
             });
 
+        }
+
+        private void ShowSubmitMessageBox()
+        {
+            string message = "URL Submitted";
+            string title = "Submit";
+
+            MessageBox.Show(message, title);
         }
     }
 }
