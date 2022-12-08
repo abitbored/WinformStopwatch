@@ -48,9 +48,6 @@ namespace WinformStopwatch
             
             ClassUrl.startUrl = tbStartUrl.Text;
             ClassUrl.stopUrl = tbStopUrl.Text;
-
-            lblStartUrl.Text = tbStartUrl.Text;
-            lblStopUrl.Text = tbStopUrl.Text;
         }
 
         private void btnStop_Click(object sender, EventArgs e)

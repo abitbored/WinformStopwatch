@@ -119,8 +119,7 @@
             // 
             // FormStopwatch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnStop);
@@ -132,8 +131,11 @@
             this.Controls.Add(this.tbStopUrl);
             this.Controls.Add(this.tbStartUrl);
             this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.MaximizeBox = false;
             this.Name = "FormStopwatch";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormStopwatch";
             this.ResumeLayout(false);
             this.PerformLayout();
