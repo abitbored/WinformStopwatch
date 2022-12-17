@@ -195,6 +195,26 @@ namespace WinformStopwatch
             }
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ms = 0;
+            s = 0;
+            m = 0;
+            h = 0;
+            lblStopwatch.Text = _startStopwatchDisplay;
+
+            tbStartUrl.ReadOnly = false;
+            tbStopUrl.ReadOnly = false;
+        }
+
+        private void FormStopwatch_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (CertMaker.rootCertExists())
+            {
+                CertMaker.removeFiddlerGeneratedCerts();
+            }
+        }
+
         private bool Comparetext(string value)
         {
             if (value == ClassUrl.startUrl)

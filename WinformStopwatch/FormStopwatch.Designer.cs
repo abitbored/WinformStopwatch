@@ -38,6 +38,7 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbStartUrl
@@ -77,6 +78,7 @@
             this.lblStopwatch.Name = "lblStopwatch";
             this.lblStopwatch.Size = new System.Drawing.Size(188, 52);
             this.lblStopwatch.TabIndex = 1;
+            this.lblStopwatch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnInstall
             // 
@@ -128,10 +130,21 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(332, 330);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(120, 50);
+            this.btnClear.TabIndex = 4;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // FormStopwatch
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnStop);
@@ -149,6 +162,7 @@
             this.Name = "FormStopwatch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormStopwatch";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormStopwatch_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +180,6 @@
         private Button btnStop;
         private Button btnStart;
         private Button btnSubmit;
+        private Button btnClear;
     }
 }
