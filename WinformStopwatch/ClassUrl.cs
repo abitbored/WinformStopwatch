@@ -10,5 +10,7 @@ namespace WinformStopwatch
     {
         public static string startUrl;
         public static string stopUrl;
+        public static string startTime;
+        public static string stopTime;
     }
 }

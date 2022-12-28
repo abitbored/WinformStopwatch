@@ -88,10 +88,8 @@ namespace WinformStopwatch
             //});
 
             this.Invoke((MethodInvoker)delegate {
-
-                // your UI update code here. e.g. this.Close();Label1.Text="something";
                 ms += 1;
-                if (ms == 100)
+                if (ms == 60)
                 {
                     ms = 0;
                     s += 1;
@@ -215,12 +213,48 @@ namespace WinformStopwatch
             }
         }
 
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    var stopwatchData = new List<string>();
+                    stopwatchData.Add("Start URL,Stop URL,Start Time,Stop Time,Stopwatch");
+                    stopwatchData.Add($"{ClassUrl.startUrl},{ClassUrl.stopUrl},{ClassUrl.startTime},{ClassUrl.stopTime},{lblStopwatch.Text}");
+
+                    File.WriteAllLines(sfd.FileName, stopwatchData);
+
+                    MessageBox.Show("Your data has been successfully saved.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        //private void btnExport_Click(object sender, EventArgs e)
+        //{
+        //    using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
+        //    {
+        //        if (sfd.ShowDialog() == DialogResult.OK)
+        //        {
+        //            var classCollectionCSV = new List<string>();
+        //            classCollectionCSV.Add("Class Name,Super Class Name,Class ID,Class Target");
+        //            foreach (var item in ClassCollection)
+        //            {
+        //                classCollectionCSV.Add($"{item.className},{item.superClass},{item.id},{item.target}");
+        //            }
+        //            File.WriteAllLines(sfd.FileName, classCollectionCSV);
+
+        //            MessageBox.Show("Your data has been successfully saved.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        }
+        //    }
+        //}
+
         private bool Comparetext(string value)
         {
             if (value == ClassUrl.startUrl)
             {
                 _timer.Start();
-
+                ClassUrl.startTime = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
             }
             return true;
         }
@@ -234,7 +268,7 @@ namespace WinformStopwatch
                     if (value == ClassUrl.stopUrl)
                     {
                         _timer.Stop();
-
+                        ClassUrl.stopTime = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
                     }
                     else
                     {
