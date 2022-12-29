@@ -112,7 +112,7 @@ namespace WinformStopwatch
 
         private void Installcert()
         {
-            if (!CertMaker.rootCertExists())
+            if (CertMaker.rootCertExists() == false)
             {
                 CertMaker.createRootCert();
                 CertMaker.trustRootCert();
@@ -227,6 +227,15 @@ namespace WinformStopwatch
 
                     MessageBox.Show("Your data has been successfully saved.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+        }
+
+        private void FormStopwatch_Load(object sender, EventArgs e)
+        {
+            if (CertMaker.rootCertExists() == false)
+            {
+                CertMaker.createRootCert();
+                CertMaker.trustRootCert();
             }
         }
 

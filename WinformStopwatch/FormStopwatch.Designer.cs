@@ -175,6 +175,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormStopwatch";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormStopwatch_FormClosed);
+            this.Load += new System.EventHandler(this.FormStopwatch_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
